@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#check').click(function() {
+                chk();
+            })
+        })
+
+
+        function chk(){
+            var aCookie = document.cookie;
+            var bCookie = aCookie.split("=");
+            var token=bCookie[1];
+            $.ajax({
+                type: "GET",
+                url: "/foo",
+                headers: {'Authorization':'bearer '+token}
+            });
+        };
+    </script>
+</head>
+<body>
+
+<form th:action="@{register}" >
+    <input type="submit" value="注册" />
+</form>
+<form th:action="@{role}" >
+    <input type="submit" value="角色" />
+</form>
+<form th:action="@{login}" >
+    <input type="submit" value="登陆" />
+</form>
+<form id="check">
+<input type="button" value="访问受保护资源" />
+</form>
+
+
+</body>
+</html>

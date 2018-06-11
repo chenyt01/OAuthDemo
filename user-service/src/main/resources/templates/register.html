@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>register</title>
+</head>
+<body>
+<h1>注册</h1>
+<form th:action="@{/user/register}" method="post">
+    <label for="username">用户名</label>
+    <input type="text" id="username" name="username" autofocus="autofocus"/><br />
+    <label for="password">密  码</label>
+    <input type="password" id="password" name="password"/><br />
+    <input type="submit" value="注册" />
+</form>
+</body>
+</html>
